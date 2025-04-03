@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Locations | Canadian Tourist Location Task List</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -21,8 +22,9 @@
 
     <main>
         <section id="location-list">
-            <h2>Top Locations to Visit</h2>
-            <ul>
+            <h2>Search for a location</h2>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+            <ul id="myUL" >
                 <li>Banff National Park - Alberta</li>
                 <li>Niagara Falls - Ontario</li>
                 <li>Old Quebec - Quebec</li>
