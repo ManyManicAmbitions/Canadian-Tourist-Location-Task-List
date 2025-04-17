@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task List | Candadian Tourist Location Task List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Canadian Tourist Location Task List</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="createTask.html">Create Task</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="help.html">Help</a></li> 
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <section id="create-task">
+        <h2>Create a task</h2>
+        <p>Fill out the form, add a task to your list</p>
+        <form id="createTaskForm">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="2" required></textarea>
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required>
+            <label for="prority">Priority</label>
+            <select name="priority" id="priority">
+                <option value="low"></option>
+                <option value="medium"></option>
+                <option value="high"></option>
+            </select>
+            <button type="submit">Add task</button>
+        </form>
+        <div id="confirmed"></div>
+        
+    </section>
+    </main>
+    
+
+    <footer>
+        <p>&copy; 2025 Canadian Tourist Location Task List</p>
+    </footer> 
+    
+    <script src="createTask.js"></script>
+</body>
+</html>
