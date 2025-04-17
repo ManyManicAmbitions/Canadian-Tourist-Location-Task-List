@@ -26,3 +26,23 @@ function myFunction() {
   }
 }
 
+
+function validateForm() {
+  let x = document.forms["myForm"]["name"].value;
+  let y = document.forms["myForm"]["message"].value;
+  let z = document.forms["myForm"]["email"].value;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (x == ""||y==""||z=="") {
+    alert("Please fill out all fields before sending a message");
+    return false;
+  }else{
+      if(pattern.test(z)==false){
+          alert("Please enter a valid email address before sending a message")
+      }else{
+          alert("You have sent a message!")
+      }
+  }
+
+
+}
+
