@@ -23,17 +23,132 @@
 
     <main>
         <section id="location-list">
-            <h2>Search for a location</h2>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-            <ul id="myUL" >
-                <li>Banff National Park - Alberta</li>
-                <li>Niagara Falls - Ontario</li>
-                <li>Old Quebec - Quebec</li>
-                <li>Stanley Park - British Columbia</li>
-                <li>Peggys Cove - Nova Scotia</li>
-            </ul>
+          <h2>Search for a Location</h2>
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..." title="Type in a name" />
+    
+          <h3>Filter by Province</h3>
+          <select id="provinceFilter">
+            <option value="">All Provinces</option>
+            <option value="Alberta">Alberta</option>
+            <option value="British Columbia">British Columbia</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Nova Scotia">Nova Scotia</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+          </select>
+    
+          <h3>Filter by Task Type</h3>
+          <select id="taskTypeFilter">
+            <option value="">All Types</option>
+            <option value="Nature">Nature</option>
+            <option value="City">City</option>
+            <option value="Historical">Historical</option>
+          </select>
+    
+          <h3>Filter by Category</h3>
+          <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="Hiking">Hiking</option>
+            <option value="Sightseeing">Sightseeing</option>
+            <option value="Museum">Museum</option>
+          </select>
+    
+          <h3>Filter by Priority</h3>
+          <select id="priorityFilter">
+            <option value="">All Priorities</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+    
+          <button onclick="filterAll()">Apply Filter</button>
+
+          <ul id="myUL">
+            <li data-province="Alberta" data-task-type="Nature" data-category="Hiking" data-priority="High">
+              Banff National Park - Alberta<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Ontario" data-task-type="City" data-category="Sightseeing" data-priority="High">
+              Niagara Falls - Ontario<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Quebec" data-task-type="Historical" data-category="Museum" data-priority="Medium">
+              Old Quebec - Quebec<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="British Columbia" data-task-type="Nature" data-category="Sightseeing" data-priority="High">
+              Stanley Park - British Columbia<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Nova Scotia" data-task-type="Nature" data-category="Sightseeing" data-priority="Medium">
+              Peggys Cove - Nova Scotia<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ⚠️</small>
+            </li>
+            <li data-province="Ontario" data-task-type="City" data-category="Sightseeing" data-priority="Medium">
+              CN Tower - Ontario<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="British Columbia" data-task-type="Nature" data-category="Hiking" data-priority="High">
+              Whistler Village - British Columbia<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="New Brunswick" data-task-type="Nature" data-category="Sightseeing" data-priority="Low">
+              Hopewell Rocks - New Brunswick<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="Newfoundland and Labrador" data-task-type="Nature" data-category="Hiking" data-priority="Medium">
+              Gros Morne National Park - Newfoundland and Labrador<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="New Brunswick" data-task-type="Nature" data-category="Sightseeing" data-priority="Medium">
+              Bay of Fundy - New Brunswick/Nova Scotia<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="Ontario" data-task-type="Historical" data-category="Museum" data-priority="Medium">
+              Parliament Hill - Ontario<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Alberta" data-task-type="Nature" data-category="Hiking" data-priority="High">
+              Kananaskis Country - Alberta<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ⚠️</small>
+            </li>
+            <li data-province="British Columbia" data-task-type="Nature" data-category="Sightseeing" data-priority="Low">
+              Capilano Suspension Bridge - British Columbia<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ⚠️</small>
+            </li>
+            <li data-province="British Columbia" data-task-type="Nature" data-category="Sightseeing" data-priority="High">
+              Tofino - British Columbia<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Ontario" data-task-type="Nature" data-category="Hiking" data-priority="Low">
+              Bay of Quinte - Ontario<br>
+              <small>Rating: ⭐⭐⭐☆☆ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="Quebec" data-task-type="Nature" data-category="Hiking" data-priority="High">
+              Mont-Tremblant - Quebec<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Nova Scotia" data-task-type="Nature" data-category="Sightseeing" data-priority="High">
+              Cabot Trail - Nova Scotia<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="Alberta" data-task-type="Nature" data-category="Sightseeing" data-priority="High">
+              Icefields Parkway - Alberta<br>
+              <small>Rating: ⭐⭐⭐⭐⭐ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+            <li data-province="Prince Edward Island" data-task-type="Nature" data-category="Sightseeing" data-priority="Medium">
+              Prince Edward Island National Park - PEI<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: ♿ | Safety: ✅</small>
+            </li>
+            <li data-province="Nova Scotia" data-task-type="Historical" data-category="Museum" data-priority="Medium">
+              Fortress of Louisbourg - Nova Scotia<br>
+              <small>Rating: ⭐⭐⭐⭐☆ | Accessibility: 🚫 | Safety: ✅</small>
+            </li>
+          </ul>
+          
         </section>
-    </main>
+      </main>
 
     <footer>
         <p>&copy; 2025 Canadian Tourist Location Task List</p>

@@ -1,30 +1,46 @@
-
 function myFunction() {
-    // Declare variables
+  // Declare variables
   var input, filter, ul, li, i, txtValue;
-  //What the user inputs
+
+  // What the user inputs
   input = document.getElementById("myInput");
-  //Filters the result to uppercase letters to eliminate case-sensitive results
+
+  // Convert input to uppercase for case-insensitive match
   filter = input.value.toUpperCase();
-  //Variable for unordered list
+
+  // Reference the unordered list and its list items
   ul = document.getElementById("myUL");
-  //Variable for list item
   li = ul.getElementsByTagName("li");
 
-  // Loop through all list items, and hide those who don't match the search query
+  // Loop through all list items
   for (i = 0; i < li.length; i++) {
-//Getting text from the list item
-      txtValue = li[i].textContent || li[i].innerText; 
-//If statement to check if the user input is inside a certain list item
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          //If there is a matching item, that item stays visible
-          li[i].style.display = "";
-      } else {
-        //Items that do not match will be hidden
-          li[i].style.display = "none";
-      }
+    // Get text from the list item
+    txtValue = li[i].textContent || li[i].innerText;
+
+    // Check if user input exists in the item text
+    li[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
   }
 }
+
+function filterAll() {
+  const province = document.getElementById("provinceFilter").value;
+  const taskType = document.getElementById("taskTypeFilter").value;
+  const category = document.getElementById("categoryFilter").value;
+  const priority = document.getElementById("priorityFilter").value;
+
+  const li = document.querySelectorAll("#myUL li");
+
+  li.forEach(item => {
+    const matches =
+      (province === "" || item.dataset.province === province) &&
+      (taskType === "" || item.dataset.taskType === taskType) &&
+      (category === "" || item.dataset.category === category) &&
+      (priority === "" || item.dataset.priority === priority);
+
+    item.style.display = matches ? "" : "none";
+  });
+}
+
 
 
 function validateForm() {
@@ -45,19 +61,22 @@ function validateForm() {
 
 
 }
-const taskForm = document.getElementById("taskForm");
-const confirmationDiv = document.getElementById("confirmed");
+window.onload = function () {
+  const taskForm = document.getElementById("taskForm");
+  const confirmationDiv = document.getElementById("confirmed");
 
+  if (taskForm) {
     taskForm.addEventListener("submit", createTask);
+  }
 
-    function createTask(event){
-        event.preventDefault();
+  function createTask(event) {
+    event.preventDefault();
 
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
-        const location = document.getElementById("location").value;
-        const priority = document.getElementById("priority").value;
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const location = document.getElementById("location").value;
+    const priority = document.getElementById("priority").value;
 
-        document.getElementById("confirmation").textContent = "Task created";
-
-    }
+    document.getElementById("confirmation").textContent = "Task created";
+  }
+};
