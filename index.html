@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candadian Tourist Location Task List(Group Project)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -19,18 +21,17 @@
         </nav>
     </header>
     <main>
-    <section id="welcome">
+<!--     <section id="welcome">
         <div class="welcome-content"></div>
         <h2>Explore Canada</h2>
         <p>Discover small town gems, create a personalized list of the locations you want to see!</p>
         <button>
             <span>Get Started</span>
         </button>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    </section>
 
-    <section id="features">
+    </section> -->
+
+<!--     <section id="features">
         <h2>Key Features</h2>
         <div class="features-container">
             <div class="feature">
@@ -46,7 +47,62 @@
                 <p>Explore locations by province and filter by task type, category, and prority</p>
             </div>
         </div>
-    </section>
+    </section> -->
+    <section id="about">
+        <div class="about-container">
+          <img src="flag.jpg" alt="Rohit smiling" class="profile-pic">
+          <div class="about-text">
+            <h2>Welcome to Canada!</h2>
+            <p>Create, Post, View, edit, and share your own travel adventures</p>
+            <p>Read reviews and rate locations based on accessibility, saftey, and more</p>
+            <p>Explore locations by province and filter by task type, category, and prority</p>
+            <p>Check out some of the places you can visit in the slideshow below!</p>
+          </div>
+  
+        </div>
+      </section>
+      <section id = "slideshow">
+        <div class="slideshow-container">
+        
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="banff.jpg" style="width:100%">
+            <div class="text">Banff</div>
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="tower.jpg" style="width:100%">
+            <div class="text">CN Tower</div>
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="fort.jpg" style="width:100%">
+            <div class="text">Fortress</div>
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="old.jpg" style="width:100%">
+            <div class="text">Old Quebec</div>
+          </div>
+        
+        
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        </section>
 
     <div class="image-container-1">
         <h3>here is a cool phote of the Marmora Mine</h3>
