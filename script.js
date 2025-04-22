@@ -61,25 +61,57 @@ function validateForm() {
 
 
 }
-window.onload = function () {
-  const taskForm = document.getElementById("taskForm");
-  const confirmationDiv = document.getElementById("confirmed");
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("createTaskForm");
+  const confirmed = document.getElementById("confirmed");
+  const taskList = document.getElementById("tasks");
 
-  if (taskForm) {
-    taskForm.addEventListener("submit", createTask);
-  }
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach(function(task){
+    const newTask = document.createElement("li");
+    newTask.innerHTML = `
+          <strong>Title:</strong> ${task.title} 
+          <strong>Description:</strong> ${task.description} 
+          <strong>Location:</strong> ${task.location} 
+          <strong>Priority:</strong> ${task.priority} `;
+    
+    taskList.appendChild(newTask);
+  })
 
-  function createTask(event) {
+  if (form) {
+    form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const location = document.getElementById("location").value;
     const priority = document.getElementById("priority").value;
+    
+    confirmed.innerHTML = `
+    <P>Task created successfully</p>
+    <ul>
+          <li><strong>Title:</strong> ${title}</li> 
+          <li><strong>Description:</strong> ${description}</li> 
+          <li><strong>Location:</strong> ${location}</li> 
+          <li><strong>Priority:</strong> ${priority}</li> 
+    </ul>`;
 
-    document.getElementById("confirmation").textContent = "Task created";
-  }
-};
+    const task = {title, description, location, priority};
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    const newTask = document.createElement("li");
+    newTask.innerHTML = `
+     <strong>Title:</strong> ${title} 
+     <strong>Description:</strong> ${description} 
+     <strong>Location:</strong> ${location} 
+     <strong>Priority:</strong> ${priority}`;
+
+     taskList.appendChild(newTask);
+  });
+ }
+});
 
 document.addEventListener("DOMContentLoaded", function (){
 
