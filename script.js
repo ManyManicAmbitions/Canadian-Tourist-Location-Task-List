@@ -1,4 +1,4 @@
-function myFunction() {
+function searchBar() {
   // Declare variables
   var input, filter, ul, li, i, txtValue;
 
@@ -113,17 +113,18 @@ document.addEventListener("DOMContentLoaded", function() {
  }
 });
 
+//event added due to error on slideshow loading all pictures instead of one by one
 document.addEventListener("DOMContentLoaded", function (){
 
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
+
 window.plusSlides = function(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
+
 window.currentSlide = function(n) {
   showSlides(slideIndex = n);
 }
